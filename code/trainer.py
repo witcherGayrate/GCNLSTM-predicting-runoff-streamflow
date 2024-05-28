@@ -187,11 +187,11 @@ print(f'Test_pre.shape: {np.array(test_pre).shape}')
 test_pre = Anti_Normalized(test_pre,min_max_values)
 #np.save('../bin/UsaSample/three_basin/test_pre_3_1_0.9',test_pre)
 R2 = r2_score(test_real.flatten(),test_pre.flatten())
-print(f'R2 of test dataset with no offset: {R2}')
+print(f'R2 of test dataset: {R2}')
 MAE = mean_absolute_error(test_real.flatten(),test_pre.flatten())
-print(f'Mean absolute error of no offset: {MAE}')
+print(f'Mean absolute error: {MAE}')
 RMSE = mean_squared_error(test_real.flatten(),test_pre.flatten())**0.5
-print(f'Root mean squared error of no offset: {RMSE}')
+print(f'Root mean squared error: {RMSE}')
 
 plt.figure(1)
 for i in range(test_real.shape[1]):
