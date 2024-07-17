@@ -1,4 +1,4 @@
-# GCNLSTM-predicting-runoff-streamflow
+# GCNLSTM使用说明
 基于pytorch搭建的卷积长短时间记忆网络（**GCN-LSTM**）、（双向）长短时间记忆网络(**biLSTM/LSTM**)、门控循环单元(**GRU**)、循环神经网络(**RNN**)、多层感知机(**MLP**)
 
 模型与数据均部署在CPU上，如需部署在GPU上只需改动少量代码
@@ -12,4 +12,18 @@
 注意：应用不同的神经网络需要更改网络的输入大小input_size以及模型的输入参数model(arg1,arg2,arg3..)
 
 其中，图卷积神经网络的权重矩阵edge_weight可以自定义，以及邻接矩阵edge_index根据水文站连接情况自定义
+
+#效果展示
+
+数据说明：使用了美国某流域的28个水文站2年的径流、气象数据，基于图神经网络的短期径流预测
+
+（1）训练过程的损失函数
+
+![图神经网络训练损失值](https://github.com/user-attachments/assets/304f6674-6e2c-4c32-acb3-8022469ca87b)
+
+（2）各个站点的预测值与观测值对比
+
+![图神经网络预测径流](https://github.com/user-attachments/assets/362d683d-9145-4e91-8d32-35600eb86084)
+
+
 
