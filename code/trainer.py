@@ -18,18 +18,6 @@ def create_dataset(normalized_data = False,data_seq=3,pred_len = 1,offset = 1,tr
     Y_test = []
     if type(normalized_data) is bool:
         normalized_data = np.load('../bin/value_matrix.npy') #(nodes,batch,channels)
-        train_len = int(normalized_data.shape[1]*train_test_ratio)
-        for i in range(0,train_len-data_seq-pred_len,offset):
-            input_seq = normalized_data[:,i:i+data_seq,:]
-            X_train.append(input_seq)
-            target_lable = normalized_data[:,i+data_seq+pred_len-1,-1] #runoff is label
-            Y_train.append(target_lable)
-        test_len = normalized_data.shape[1]-train_len
-        for j in range(0,test_len-data_seq-pred_len,offset):
-            input_seq = normalized_data[:,train_len+j:train_len+j+data_seq,:]
-            X_test.append(input_seq)
-            target_lable = normalized_data[:,train_len+j+data_seq+pred_len-1,-1]#-1 is runoff
-            Y_test.append(target_lable)
     else:
         train_len = int(normalized_data.shape[1]*train_test_ratio)
         for i in range(0,train_len-data_seq-pred_len,offset):
